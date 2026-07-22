@@ -1,3 +1,12 @@
+<script lang="ts">
+import HeaderBanner from './components/HeaderBanner.vue'
+export default {
+  components: {
+    HeaderBanner
+  }
+}
+</script>
+
 <template>
-  <h1>Meu primeiro projeto Vue!</h1>
+  <HeaderBanner />
 </template>
