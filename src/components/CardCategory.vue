@@ -13,7 +13,7 @@
         components: {
             SelectedIngredient
         },
-        emits: ['addIngredient']
+        emits: ['addIngredient', 'removeIngredient']
     }
 </script>
 <template>
@@ -26,7 +26,8 @@
             <li v-for="ingredient in category.ingredientes" :key="ingredient">
                 <SelectedIngredient 
                 :ingredient="ingredient" 
-                @add-ingredient="$emit('addIngredient', $event)" />
+                @add-ingredient="$emit('addIngredient', $event)" 
+                @remove-ingredient="$emit('removeIngredient', $event)"/>
             </li>
         </ul>
     </article>

@@ -22,7 +22,7 @@
                 </li>
             </ul>
 
-            <p v-else class="paragrafo lista-vazia"> <img src="../assets/imagens/icones/lista-vazia.svg" alt="Lista vazia">
+            <p v-else class="paragrafo lista-vazia"> <img src="../assets/icones/lista-vazia.svg" alt="Lista vazia">
                 Sua lista está vazia, selecione ingredientes para iniciar.
             </p>
         </section>

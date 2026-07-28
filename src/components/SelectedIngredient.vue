@@ -19,12 +19,12 @@
         methods: {
             toggleSelection() {
                 this.selected = !this.selected;
-                if(this.selected) {
-                    this.$emit("addIngredient", this.ingredient)
-                }
+        
+                if(this.selected) this.$emit("addIngredient", this.ingredient)                            
+                if(!this.selected) this.$emit("removeIngredient", this.ingredient)
             }
         },
-        emits: ['addIngredient']
+        emits: ['addIngredient', 'removeIngredient']
     }
 </script>
 

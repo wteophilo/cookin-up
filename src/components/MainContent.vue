@@ -15,6 +15,13 @@
         methods: {
             addIngredient(ingredient: string) {
                 this.ingredients.push(ingredient);
+            },
+            removeIngredient(ingredient: string) {
+                const index = this.ingredients.indexOf(ingredient);
+                
+                if (index !== -1) {
+                    this.ingredients.splice(index, 1);
+                }
             }
         }
     }
@@ -23,6 +30,9 @@
 <template>
     <main class="conteudo-principal">
         <UserList :ingredients="ingredients" />    
-        <SelectIngredients @add-ingredient="addIngredient($event)"/>
+        <SelectIngredients 
+            @add-ingredient="addIngredient($event)"
+            @remove-ingredient="removeIngredient($event)"
+        />
     </main>
 </template>
