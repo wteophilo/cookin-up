@@ -15,13 +15,22 @@
             return {
                 selected: false
             }
-        }
+        },
+        methods: {
+            toggleSelection() {
+                this.selected = !this.selected;
+                if(this.selected) {
+                    this.$emit("addIngredient", this.ingredient)
+                }
+            }
+        },
+        emits: ['addIngredient']
     }
 </script>
 
 <template>
     <button class="ingrediente" 
-    @click ="selected= !selected"
+    @click ="toggleSelection()"
     :aria-pressed="selected">
 
         <TagText :texto="ingredient" :ativa="selected" />

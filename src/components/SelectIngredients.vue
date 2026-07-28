@@ -14,7 +14,8 @@
         },
         async created() {
             this.categories = await getCategories()
-        }
+        },
+        emits: ['addIngredient']
     }
 </script>
 
@@ -27,7 +28,9 @@
 
         <ul class="categorias">
             <li v-for="category in categories" :key="category.nome">
-                <CardCategory :category="category" />
+                <CardCategory 
+                :category="category" 
+                @add-ingredient="$emit('addIngredient', $event)"/>
             </li>
         </ul>
 

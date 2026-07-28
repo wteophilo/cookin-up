@@ -5,19 +5,24 @@
     export default {
         data() {
             return {
-                ingredients: ['Alho', 'Manteiga', 'Orégano']
+                ingredients: [] as string[]
             }
         },
         components: {
             UserList,
             SelectIngredients
-        }   
+        },
+        methods: {
+            addIngredient(ingredient: string) {
+                this.ingredients.push(ingredient);
+            }
+        }
     }
 </script>
 
 <template>
     <main class="conteudo-principal">
         <UserList :ingredients="ingredients" />    
-        <SelectIngredients/>
+        <SelectIngredients @add-ingredient="addIngredient($event)"/>
     </main>
 </template>
