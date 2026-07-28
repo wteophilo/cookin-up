@@ -1,10 +1,15 @@
 <script lang="ts">
+    import TagText from './TagText.vue';
+
     export default {
         data() {
             return {
                 ingredients: ['Batata', 'Tomate', 'Cenoura', 'Alface', 'Ovo', 'Leite', 'Pão']
             }
-        }
+        },
+        components: {
+            TagText
+        }   
     }
 </script>
 
@@ -14,8 +19,8 @@
             <span class="subtitulo-lg sua-lista-texto">Sua lista de compras</span>
 
             <ul v-if="ingredients.length > 0" class="ingredientes-sua-lista">
-                <li v-for="ingredient in ingredients" :key="ingredient" class="ingrediente">
-                    {{ ingredient }}
+                <li v-for="ingredient in ingredients" :key="ingredient">
+                    <TagText :texto="ingredient" />
                 </li>
             </ul>
 
@@ -51,18 +56,6 @@
         justify-content: center;
         gap: 1rem 1.5rem;
         flex-wrap: wrap;
-    }
-
-    .ingrediente {
-        display: inline-block;
-        border-radius: 0.5rem;
-        min-width: 4.25rem;
-        padding: 0.5rem;
-        text-align: center;
-        transition: 0.2s;
-        color: var(--creme, #FFFAF3);
-        background: var(--coral, #F0633C);
-        font-weight: 700;
     }
 
     .lista-vazia {

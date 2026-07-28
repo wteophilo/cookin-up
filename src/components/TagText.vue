@@ -1,0 +1,32 @@
+<script lang="ts">
+    import type { PropType } from "vue";
+
+    export default {
+        props: {
+            texto: {
+                type: String as PropType<string>,
+                required: true
+            }
+        }
+    }
+</script>
+
+<template>
+    <span class="tag">
+        {{ texto }}
+    </span>
+</template>
+
+<style scoped>
+    .tag {
+        display: inline-block;
+        border-radius: 0.5rem;
+        min-width: 4.25rem;
+        padding: 0.5rem;
+        text-align: center;
+        transition: 0.2s;
+        color: var(--creme, #FFFAF3);
+        background: var(--coral, #F0633C);
+        font-weight: 700;
+    }
+</style>
