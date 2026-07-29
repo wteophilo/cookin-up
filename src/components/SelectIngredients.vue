@@ -2,10 +2,12 @@
     import { getCategories } from "@/http/index";
     import type ICategory from "@/interfaces/ICategory";
     import CardCategory from "./CardCategory.vue";
+    import SearchButton from "./SearchButton.vue";
 
     export default {
         components: {
-            CardCategory
+            CardCategory,
+            SearchButton
         },
         data() {
             return {
@@ -38,7 +40,8 @@
         <p class="paragrafo dica">
             *Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
-        
+
+        <SearchButton text="Buscar receitas!" />
     </section>
 
 </template>
