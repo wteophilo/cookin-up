@@ -17,11 +17,7 @@
                 this.ingredients.push(ingredient);
             },
             removeIngredient(ingredient: string) {
-                const index = this.ingredients.indexOf(ingredient);
-                
-                if (index !== -1) {
-                    this.ingredients.splice(index, 1);
-                }
+                this.ingredients = this.ingredients.filter(list => ingredient !== list)
             }
         }
     }
