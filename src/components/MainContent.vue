@@ -1,25 +1,16 @@
-<script lang="ts">
-    import SelectIngredients from './SelectIngredients.vue';
+<script setup lang="ts">
+    import { ref } from 'vue';
     import UserList from './UserList.vue';
+    import SelectIngredients from './SelectIngredients.vue';
+    
+    const ingredients = ref<string[]>([]);
 
-    export default {
-        data() {
-            return {
-                ingredients: [] as string[]
-            }
-        },
-        components: {
-            UserList,
-            SelectIngredients
-        },
-        methods: {
-            addIngredient(ingredient: string) {
-                this.ingredients.push(ingredient);
-            },
-            removeIngredient(ingredient: string) {
-                this.ingredients = this.ingredients.filter(list => ingredient !== list)
-            }
-        }
+    function addIngredient(ingredient: string) {
+        ingredients.value.push(ingredient);
+    }
+
+    function removeIngredient(ingredient: string) {
+        ingredients.value = ingredients.value.filter(list => ingredient !== list)
     }
 </script>
 

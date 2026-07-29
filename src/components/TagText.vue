@@ -1,18 +1,10 @@
-<script lang="ts">
-    import type { PropType } from "vue";
-
-    export default {
-        props: {
-            texto: {
-                type: String as PropType<string>,
-                required: true
-            },
-            ativa: {
-                type: Boolean as PropType<boolean>,
-                default: false
-            }
-        }
+<script setup lang="ts">
+    interface IProps {
+        texto: string;
+        ativa: boolean;
     }
+
+    defineProps<IProps>();
 </script>
 
 <template>

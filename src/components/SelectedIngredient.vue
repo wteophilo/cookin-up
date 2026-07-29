@@ -1,32 +1,30 @@
-<script lang="ts">
+<script setup lang="ts">
+    import { ref } from 'vue';
     import TagText from './TagText.vue';
 
-    export default {
-        components: {
-            TagText
-        },
-        props: {
-            ingredient: {
-                type: String,
-                required: true
-            }
-        },
-        data() {
-            return {
-                selected: false
-            }
-        },
-        methods: {
-            toggleSelection() {
-                this.selected = !this.selected;
-                if(this.selected) {
-                    this.$emit("addIngredient", this.ingredient)                            
-                } else {
-                   this.$emit("removeIngredient", this.ingredient)
-                }
-            }
-        },
-        emits: ['addIngredient', 'removeIngredient']
+    interface Props {
+        ingredient: string;
+    }
+
+    const props = defineProps<Props>();
+
+    //events
+    const emit = defineEmits<{
+        addIngredient: [ingredient: string];
+        removeIngredient: [ingredient: string];
+    }>();
+    
+    //data()
+    const selected = ref(false);
+    
+    function toggleSelection() {
+        selected.value = !selected.value;
+    
+        if (selected.value) {
+            emit('addIngredient', props.ingredient);
+        } else {
+            emit('removeIngredient', props.ingredient);
+        }
     }
 </script>
 

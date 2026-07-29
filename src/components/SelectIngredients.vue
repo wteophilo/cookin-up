@@ -1,24 +1,20 @@
-<script lang="ts">
+<script setup lang="ts">
+    import { ref, onMounted } from 'vue';
     import { getCategories } from "@/http/index";
     import type ICategory from "@/interfaces/ICategory";
     import CardCategory from "./CardCategory.vue";
     import SearchButton from "./SearchButton.vue";
 
-    export default {
-        components: {
-            CardCategory,
-            SearchButton
-        },
-        data() {
-            return {
-                categories: [] as ICategory[]
-            }
-        },
-        async created() {
-            this.categories = await getCategories()
-        },
-        emits: ['addIngredient', 'removeIngredient']
-    }
+    const categories = ref<ICategory[]>([]);
+
+    defineEmits<{
+        addIngredient: [ingredient: string];
+        removeIngredient: [ingredient: string];
+    }>();
+
+    onMounted(async () => {
+        categories.value = await getCategories();
+    });
 </script>
 
 <template>

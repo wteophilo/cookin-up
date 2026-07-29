@@ -1,21 +1,19 @@
-<script lang="ts">
-    import type ICategory from "@/interfaces/ICategory";
-    import type { PropType } from "vue";
-    import SelectedIngredient from "./SelectedIngredient.vue";
+<script setup lang="ts">
+    import type ICategory from '@/interfaces/ICategory';
+    import SelectedIngredient from './SelectedIngredient.vue';
 
-    export default {
-        props: {
-            category: {
-                type: Object as PropType<ICategory>,
-                required: true
-            }
-        },
-        components: {
-            SelectedIngredient
-        },
-        emits: ['addIngredient', 'removeIngredient']
+    interface Props {
+        category: ICategory
     }
+
+    defineProps<Props>();
+
+    defineEmits<{
+        addIngredient: [ingredient: string]
+        removeIngredient: [ingredient: string]
+    }>();
 </script>
+
 <template>
     <article class="categoria">
         <header class="categoria__cabecalho">

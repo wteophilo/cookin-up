@@ -1,14 +1,9 @@
-<script lang="ts">
-    import type { PropType } from "vue";
-
-    export default {
-        props: {
-            text: {
-                type: String as PropType<string>,
-                required: true
-            }
-        }        
+<script setup lang="ts">
+    interface Props {
+        text: string
     }
+
+    defineProps<Props>()
 </script>
 
 <template>
