@@ -2,7 +2,7 @@
     import { ref } from 'vue';
     import UserList from './UserList.vue';
     import SelectIngredients from './SelectIngredients.vue';
-    import type ShowRecepie from './ShowRecepie.vue';
+    import ShowRecipe from './ShowRecipe.vue';
     
     type Page = 'SelectIngredients' | 'ShowRecipe';
     const ingredients = ref<string[]>([]);
@@ -30,6 +30,6 @@
             @search-recipe="navigateTo('ShowRecipe')"
             v-if="content === 'SelectIngredients'"
         />
-        <ShowRecepie v-else-if="content === 'ShowRecipe'" />
+        <ShowRecipe v-else-if="content === 'ShowRecipe'" />
     </main>
 </template>
