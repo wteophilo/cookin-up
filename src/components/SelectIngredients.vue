@@ -10,6 +10,7 @@
     defineEmits<{
         addIngredient: [ingredient: string];
         removeIngredient: [ingredient: string];
+        searchRecipe: [];
     }>();
 
     onMounted(async () => {
@@ -37,7 +38,7 @@
             *Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
 
-        <SearchButton text="Buscar receitas!" />
+        <SearchButton text="Buscar receitas!" @click="$emit('searchRecipe')" />
     </section>
 
 </template>
