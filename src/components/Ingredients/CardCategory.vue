@@ -3,14 +3,15 @@
     import SelectedIngredient from './SelectedIngredient.vue';
 
     interface Props {
-        category: ICategory
+        category: ICategory;
+        ingredients: string[];
     }
 
     defineProps<Props>();
 
     defineEmits<{
-        addIngredient: [ingredient: string]
-        removeIngredient: [ingredient: string]
+        addIngredient: [ingredient: string];
+        removeIngredient: [ingredient: string];
     }>();
 </script>
 
@@ -24,6 +25,7 @@
             <li v-for="ingredient in category.ingredientes" :key="ingredient">
                 <SelectedIngredient 
                 :ingredient="ingredient" 
+                :selected="ingredients.includes(ingredient)"
                 @add-ingredient="$emit('addIngredient', $event)" 
                 @remove-ingredient="$emit('removeIngredient', $event)"/>
             </li>

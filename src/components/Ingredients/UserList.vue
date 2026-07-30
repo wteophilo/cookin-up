@@ -11,13 +11,14 @@
     <section>
         <span class="subtitulo-lg sua-lista-texto">Sua lista</span>
 
-        <ul v-if="ingredients.length > 0" class="ingredientes-sua-lista">
+        <ul v-if="ingredients.length" class="ingredientes-sua-lista">
             <li v-for="ingredient in ingredients" :key="ingredient">
                 <TagText :texto="ingredient" :ativa="true" />
             </li>
         </ul>
 
-        <p v-else class="paragrafo lista-vazia"> <img src="@/assets/icones/lista-vazia.svg" alt="Lista vazia">
+        <p v-else class="paragrafo lista-vazia"> 
+            <img src="@/assets/icones/lista-vazia.svg" alt="Lista vazia">
             Sua lista está vazia, selecione ingredientes para iniciar.
         </p>
     </section>

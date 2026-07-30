@@ -5,6 +5,10 @@
     import CardCategory from "./CardCategory.vue";
     import SearchButton from "./SearchButton.vue";
 
+    defineProps<{
+        ingredients: string[];
+    }>();
+
     const categories = ref<ICategory[]>([]);
 
     defineEmits<{
@@ -29,6 +33,7 @@
             <li v-for="category in categories" :key="category.nome">
                 <CardCategory 
                 :category="category" 
+                :ingredients="ingredients"
                 @add-ingredient="$emit('addIngredient', $event)" 
                 @remove-ingredient="$emit('removeIngredient', $event)"/>
             </li>
@@ -38,7 +43,7 @@
             *Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
 
-        <SearchButton text="Buscar receitas!" @click="$emit('searchRecipe')" />
+        <SearchButton text="Buscar receitas!" :disabled="!ingredients.length" @click="$emit('searchRecipe')" />
     </section>
 
 </template>

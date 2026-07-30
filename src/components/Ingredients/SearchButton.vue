@@ -1,13 +1,14 @@
 <script setup lang="ts">
     interface Props {
-        text: string
+        text: string;
+        disabled?: boolean;
     }
 
     defineProps<Props>()
 </script>
 
 <template>
-    <button class="main-button">
+    <button class="main-button" :disabled="disabled">
         {{ text }}
     </button>
 </template>
@@ -32,5 +33,12 @@
 
     .main-button:hover {
         background: var(--ocre-hover, #D1451E);
+    }
+
+    .main-button:disabled {
+        background: var(--cinza-claro, #EFEFEF);
+        color: var(--cinza, #444444);
+        cursor: not-allowed;
+        box-shadow: none;
     }
 </style>

@@ -1,12 +1,14 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
     import TagText from './TagText.vue';
 
     interface Props {
         ingredient: string;
+        selected?: boolean;
     }
 
-    const props = defineProps<Props>();
+    const props = withDefaults(defineProps<Props>(), {
+        selected: false
+    });
 
     //events
     const emit = defineEmits<{
@@ -14,13 +16,8 @@
         removeIngredient: [ingredient: string];
     }>();
     
-    //data()
-    const selected = ref(false);
-    
     function toggleSelection() {
-        selected.value = !selected.value;
-    
-        if (selected.value) {
+        if (!props.selected) {
             emit('addIngredient', props.ingredient);
         } else {
             emit('removeIngredient', props.ingredient);
@@ -30,7 +27,7 @@
 
 <template>
     <button class="ingrediente" 
-    @click ="toggleSelection()"
+    @click="toggleSelection()"
     :aria-pressed="selected">
 
         <TagText :texto="ingredient" :ativa="selected" />

@@ -2,7 +2,7 @@
     import { ref } from 'vue';
     import UserList from './UserList.vue';
     import SelectIngredients from './SelectIngredients.vue';
-    import ShowRecipe from './ShowRecipe.vue';
+    import ShowRecipe from '@/components/Recipes/ShowRecipe.vue';
     
     type Page = 'SelectIngredients' | 'ShowRecipe';
     const ingredients = ref<string[]>([]);
@@ -25,11 +25,15 @@
     <main class="conteudo-principal">
         <UserList :ingredients="ingredients" />    
         <SelectIngredients 
+            :ingredients="ingredients"
             @add-ingredient="addIngredient($event)"
             @remove-ingredient="removeIngredient($event)"
             @search-recipe="navigateTo('ShowRecipe')"
             v-if="content === 'SelectIngredients'"
         />
-        <ShowRecipe v-else-if="content === 'ShowRecipe'" />
+        <ShowRecipe 
+            v-else-if="content === 'ShowRecipe'" 
+            @edit-recipe="navigateTo('SelectIngredients')"
+        />
     </main>
 </template>
