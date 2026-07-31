@@ -13,6 +13,6 @@ export async function getCategories(): Promise<ICategory[]> {
 }
 
 export async function getRecipes() {
-    const url = "https://gist.githubusercontent.com/antonio-evaldo/002ad55e1cf01ef3fc6ee4feb9152964/raw/bf463b47860043da3b3604ca60cffc3ad1ba9865/receitas.json";
+    const url = "https://gist.githubusercontent.com/wteophilo/bf07366abbabd18836d3bc6491b561ba/raw/8d3df17d3ddd01e8f5e09668f5bf881db7af9d55/recipe.json";
     return getDataFromUrl<IRecipe[]>(url);
 }

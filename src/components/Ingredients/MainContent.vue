@@ -24,16 +24,18 @@
 <template>
     <main class="conteudo-principal">
         <UserList :ingredients="ingredients" />    
-        <SelectIngredients 
-            :ingredients="ingredients"
-            @add-ingredient="addIngredient($event)"
-            @remove-ingredient="removeIngredient($event)"
-            @search-recipe="navigateTo('ShowRecipe')"
-            v-if="content === 'SelectIngredients'"
-        />
-        <ShowRecipe 
-            v-else-if="content === 'ShowRecipe'" 
-            @edit-recipe="navigateTo('SelectIngredients')"
-        />
+        <KeepAlive include="SelectIngredients">
+            <SelectIngredients 
+                :ingredients="ingredients"
+                @add-ingredient="addIngredient($event)"
+                @remove-ingredient="removeIngredient($event)"
+                @search-recipe="navigateTo('ShowRecipe')"
+                v-if="content === 'SelectIngredients'"
+            />
+            <ShowRecipe 
+                v-else-if="content === 'ShowRecipe'" 
+                @edit-recipe="navigateTo('SelectIngredients')"
+            />
+        </KeepAlive>
     </main>
 </template>

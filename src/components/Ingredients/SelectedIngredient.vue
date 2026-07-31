@@ -15,6 +15,10 @@
         addIngredient: [ingredient: string];
         removeIngredient: [ingredient: string];
     }>();
+
+    defineOptions({
+        name: 'SelectIngredients'
+    });
     
     function toggleSelection() {
         if (!props.selected) {
