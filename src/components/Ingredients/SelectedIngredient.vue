@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import TagText from './TagText.vue';
+    import TagText from '../Common/TagText.vue';
 
     interface Props {
         ingredient: string;

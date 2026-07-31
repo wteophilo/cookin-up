@@ -1,7 +1,7 @@
 <script lang="ts">
-import HeaderBanner from '@/components/Ingredients/HeaderBanner.vue';
+import HeaderBanner from '@/components/Common/HeaderBanner.vue';
 import MainContent from '@/components/Ingredients/MainContent.vue';
-import FooterBanner from '@/components/Ingredients/FooterBanner.vue';
+import FooterBanner from '@/components/Common/FooterBanner.vue';
 
 export default {
   components: {
